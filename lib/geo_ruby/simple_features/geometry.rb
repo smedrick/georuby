@@ -222,6 +222,13 @@ module GeoRuby#:nodoc:
         return wkt
       end
 
+      #do this because ActionView is stepping on our nuts
+      def concat(points)
+        points.each do |p|
+          self << p
+        end
+      end
+
       private
 
       def self.split_coords(coords)
